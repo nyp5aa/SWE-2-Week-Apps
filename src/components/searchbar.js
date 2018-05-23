@@ -1,40 +1,32 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+//Civic API key = AIzaSyBcEH-TahbG4-yX_A-BjZ7lp_8XZdvbxGo
+
 class Searchbar extends Component{
     constructor(props){
         super(props);
         this.state = {
-            count : 0,
-            persons: [],
-            address: ""
+            data: []
         };
     }
     takeInput=()=>{
-        this.setState({
-            address: document.getElementById("searchb").value
-        });
+        let s = document.getElementById("searchb").value;
+        s = s.replace(/\s+/g, '%20').toLowerCase();
         document.getElementById("searchb").value="";
-        axios.get(`https://jsonplaceholder.typicode.com/users`)
+        axios.get('https://www.googleapis.com/civicinfo/v2/voterinfo?key=AIzaSyBcEH-TahbG4-yX_A-BjZ7lp_8XZdvbxGo&address=' + s + '&electionId=2000')
         .then(res => {
-          const x = res.data;
-          this.setState({persons: x });
+          this.setState({
+              data: res.data.contests
+            });
         })
-        document.getElementById("searchb").value="";
-        console.log(this.state.address);
     }
     render(){
         return (
             <div>
-                <div>
-                    <input id="searchb" type="text" placeholder="Enter City" size="75"/>
-                    <button onClick={this.takeInput}> GO! </button>
-                </div>
-                <div>
-                    <ul>
-                        { this.state.persons.map(person => <li>{person.name}</li>)}
-                    </ul>
-                </div>
+                <input id="searchb" type="text" placeholder="Enter City" size="75"/>
+                <button onClick={this.takeInput}> GO! </button>
+                {console.log(this.state.data)}
             </div>
         );
     }
