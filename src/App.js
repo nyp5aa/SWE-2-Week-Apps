@@ -6,7 +6,9 @@ import axios from 'axios';
 class App extends Component {
   render() {
     return (
-      <Searchbar />
+      <div>
+        <Searchbar />
+      </div>
     );
   }
 }
