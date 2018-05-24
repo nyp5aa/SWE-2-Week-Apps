@@ -10,6 +10,7 @@ class App extends Component {
       <div>
         <Searchbar />
         <Button />
+        <Button />
       </div>
     );
   }
