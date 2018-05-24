@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Searchbar from './components/searchbar';
+import Button from './components/button';
 import axios from 'axios';
 
 class App extends Component {
@@ -8,6 +9,7 @@ class App extends Component {
     return (
       <div>
         <Searchbar />
+        <Button />
       </div>
     );
   }
