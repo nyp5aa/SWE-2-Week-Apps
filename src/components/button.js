@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Searchbar from './searchbar';
+import { Link } from 'react-router-dom'
 
 class Button extends Component{
     constructor(props){
@@ -54,7 +55,10 @@ class Button extends Component{
     render(){
         return(
             <div>
-                <button onClick={this.takeInput}> GO! </button>
+                <button onClick={this.takeInput}> 
+                    <Link to='/People'/>
+                    GO!
+                </button>
             </div>
         );
     }
