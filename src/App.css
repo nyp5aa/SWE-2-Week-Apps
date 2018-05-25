@@ -34,3 +34,7 @@
 .App-intro {
   font-size: large;
 }
+
+.searchbars {
+  display: inline-block;
+}
