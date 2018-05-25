@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Searchbar from './searchbar';
+import { Link } from 'react-router-dom'
 
 class Button extends Component{
     constructor(props){
         super(props);
         this.state = {
-            data: null
+            data: null,
+            listOfOfficeNameHouse: null
         };
     }
     takeInput=()=>{
@@ -17,12 +19,29 @@ class Button extends Component{
         document.getElementById("enterAddress").value="";
         document.getElementById("enterCity").value="";
         document.getElementById("enterState").value="";
+        console.log(percentTwenty);
         axios.get('https://www.googleapis.com/civicinfo/v2/voterinfo?key=AIzaSyBcEH-TahbG4-yX_A-BjZ7lp_8XZdvbxGo&address=' + percentTwenty + '&electionId=2000')
         .then(res => {
-            console.log(res.data.contests)
-          this.setState({
-              data: res.data.contests
+            this.setState({
+                data: res.data.contests
             });
+            let dummyList = [];
+            this.state.data.map(con =>{
+                let off = con.office;
+                if(con.candidates){
+                    con.candidates.map(member =>{
+                        let nam = member.name;
+                        let part = member.party;
+                        let trips = {
+                            office: off,
+                            name: nam,
+                            house: part
+                        };
+                        dummyList.push(trips);
+                    });
+                };
+            });
+            console.log(dummyList);
         })
     }
     postCandidates(){
@@ -36,7 +55,9 @@ class Button extends Component{
     render(){
         return(
             <div>
-                <button onClick={this.takeInput}> GO! </button>
+                <Link to='/People'>
+                    <button onClick={this.takeInput}> GO! </button>
+                </Link>
             </div>
         );
     }
