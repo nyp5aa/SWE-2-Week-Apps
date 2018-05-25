@@ -1,36 +1,78 @@
 /* @import url(“https://fonts.googleapis.com/css?family=Roboto“); */
+/* @import url(“https://fonts.googleapis.com/css?family=Tangerine“); */
 
 .App {
   text-align: center;
 }
 
+.App-header {
+  text-align: center;
+}
+
+.search {
+  padding-bottom: 40px;
+  text-align: center;
+  font-family: "Calibri";
+}
+
+.poorlynamedvariable {
+  text-align: center;
+}
+
+.App-logo {
+  height: 120px;
+  padding-top: 20px;
+  padding-bottom: 5px;
+}
+
 .Background {
-  background-color: lightblue;
-  padding-bottom: 60px;
+  background-color: white;
+  border-style: solid;
+  border-color: rgb(204, 116, 33);
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .Header {
   text-align: center;
-  padding-top: 5px;
-  background-color: lightsalmon;
-  color: white;
-  font-size: 60px;
-  font-family: "Roboto", sans-serif;
+  color: orangered;
+  font-size: 50px;
 }
 
-.Button {
-  align-items: center;
+#border {
+  font-size: 40px;
+}
+
+#bborder {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: rgb(204, 116, 33);
+  font-size: 16px;
+  font-family: "Calibri";
+}
+
+#but {
+  height: 50px;
+  width: 100px;
+  border-style: none;
+  color: rgb(204, 116, 33);
+  background-color: whitesmoke;
+  border-style: solid;
+  border-color: rgb(204, 116, 33);
+  border-width: 1.3px;
+  box-shadow: 40px;
+  font-size: 20px;
+  text-align: center;
+  font-family: "Calibri";
+  /* /padding-bottom: 20px; */
 }
 
 .Footer {
-  padding-bottom: 100px;
-  background-color: orangered;
+  padding-top: 50px;
+  background-color: lightblue;
 }
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
+.bigdiv {
+  padding-block-end: 100px;
 }
