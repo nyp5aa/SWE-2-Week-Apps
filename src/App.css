@@ -76,3 +76,7 @@
 .bigdiv {
   padding-block-end: 100px;
 }
+
+.searchbars {
+  display: inline-block;
+}

@@ -45,14 +45,16 @@ class butt extends Component {
     return (
       <div className="buttonDiv">
         <ButtonToolbar>
-          <Button
-            id="but"
-            bsStyle="success"
-            bsSize="large"
-            onClick={this.takeInput}
-          >
-            GO
-          </Button>
+          <Link to='/People'>
+            <Button
+              id="but"
+              bsStyle="success"
+              bsSize="large"
+              onClick={this.takeInput}
+            >
+              GO
+            </Button>
+           </Link>
         </ButtonToolbar>
       </div>
     );
