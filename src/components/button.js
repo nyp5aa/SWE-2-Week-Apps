@@ -55,10 +55,9 @@ class Button extends Component{
     render(){
         return(
             <div>
-                <button onClick={this.takeInput}> 
-                    <Link to='/People'/>
-                    GO!
-                </button>
+                <Link to='/People'>
+                    <button onClick={this.takeInput}> GO! </button>
+                </Link>
             </div>
         );
     }
