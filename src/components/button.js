@@ -58,8 +58,8 @@ class butt extends Component {
     return (
       <div className="buttonDiv">
         {console.log(this.state.listOfOfficeNameHouse)}
-        {/*<ButtonToolbar>
-          <Link to='/People'>*/}
+        <ButtonToolbar>
+          <Link to='/People'>
             <Button
               id="but"
               bsStyle="success"
@@ -68,8 +68,8 @@ class butt extends Component {
             >
               GO
             </Button>
-           {/*</Link>
-        </ButtonToolbar>*/}
+           </Link>
+        </ButtonToolbar>
       </div>
     );
   }
