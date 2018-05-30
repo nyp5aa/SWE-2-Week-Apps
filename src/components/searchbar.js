@@ -18,23 +18,26 @@ class Searchbar extends Component {
             id="enterAddress"
             type="text"
             placeholder="Enter Address"
-            size="60"
+            //size="90%"
           />
         </div>
-        <input id="enterCity" type="text" placeholder="Enter City" size="60" />
+        <input
+          id="enterCity"
+          type="text"
+          placeholder="Enter City" /*size="90%"*/
+        />
         <div />
         <div>
           <input
             id="enterState"
             type="text"
             placeholder="Enter State"
-            size="60"
+            //size="40px"
           />
         </div>
       </div>
     );
   }
-
 }
 
 export default Searchbar;
