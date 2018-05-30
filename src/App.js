@@ -14,7 +14,7 @@ class App extends Component {
       allData: []
     };
   }
-  changeDataHere = (dummyList) => {
+  changeDataHere = dummyList => {
     this.setState({
       dataHere: true,
       allData: dummyList
@@ -25,11 +25,7 @@ class App extends Component {
       const candidates = this.state.allData.map(person => {
         return <Results candidate={person} />;
       });
-      return (
-        < div >
-          {candidates}
-        </div >
-      );
+      return <div>{candidates}</div>;
     }
     return (
       <div>
@@ -46,7 +42,6 @@ class App extends Component {
             </div>
           </div>
         </div>
-        <div className="Footer" />
       </div>
     );
   }
