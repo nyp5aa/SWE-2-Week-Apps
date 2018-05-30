@@ -11,13 +11,15 @@ class App extends Component {
     super(props);
     this.state = {
       dataHere: false,
-      allData: []
+      allData: [],
+      headerData: []
     };
   }
-  changeDataHere = dummyList => {
+  changeDataHere = (dummyList, forHeader) => {
     this.setState({
       dataHere: true,
-      allData: dummyList
+      allData: dummyList,
+      headerData: forHeader
     });
   };
   render() {
@@ -25,7 +27,14 @@ class App extends Component {
       const candidates = this.state.allData.map(person => {
         return <Results candidate={person} />;
       });
-      return <div>{candidates}</div>;
+      return (
+        < div >
+          {this.state.headerData[0]}
+          {this.state.headerData[1]}
+          {this.state.headerData[2]}
+          {candidates}
+        </div >
+      );
     }
     return (
       <div>
