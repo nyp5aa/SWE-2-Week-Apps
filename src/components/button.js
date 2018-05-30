@@ -13,14 +13,15 @@ class butt extends Component {
       listOfOfficeNameHouse: null
     };
   }
-  takeInput=()=>{
+  takeInput = () => {
     let addressvalue = document.getElementById("enterAddress").value;
     let cityvalue = document.getElementById("enterCity").value;
     let statevalue = document.getElementById("enterState").value;
-    let percentTwenty = addressvalue + "%20" + cityvalue + "%20" + statevalue + "%20";
-    document.getElementById("enterAddress").value="";
-    document.getElementById("enterCity").value="";
-    document.getElementById("enterState").value="";
+    let percentTwenty =
+      addressvalue + "%20" + cityvalue + "%20" + statevalue + "%20";
+    document.getElementById("enterAddress").value = "";
+    document.getElementById("enterCity").value = "";
+    document.getElementById("enterState").value = "";
     let dummyList = [];
     this.props.changeDataHere();
     axios.get('https://www.googleapis.com/civicinfo/v2/voterinfo?key=AIzaSyBcEH-TahbG4-yX_A-BjZ7lp_8XZdvbxGo&address=' + percentTwenty + '&electionId=2000')

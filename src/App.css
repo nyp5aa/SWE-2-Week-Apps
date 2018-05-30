@@ -27,16 +27,17 @@
 
 .Background {
   background-color: white;
+  height: 100%;
   border-style: solid;
   border-color: rgb(204, 116, 33);
-  padding-left: 20px;
-  padding-right: 20px;
+  width: 400px;
+  margin: 0 auto;
 }
 
 .Header {
   text-align: center;
   color: orangered;
-  font-size: 50px;
+  font-size: 20px;
 }
 
 #border {
@@ -61,22 +62,56 @@
   border-style: solid;
   border-color: rgb(204, 116, 33);
   border-width: 1.3px;
-  box-shadow: 40px;
   font-size: 20px;
   text-align: center;
   font-family: "Calibri";
-  /* /padding-bottom: 20px; */
 }
 
 .Footer {
   padding-top: 50px;
   background-color: lightblue;
+  height: 100%;
 }
 
 .bigdiv {
-  padding-block-end: 100px;
+  padding-block-end: 55px;
 }
 
 .searchbars {
   display: inline-block;
+}
+
+/* making it work */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: lightblue;
+}
+
+.box {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+.box .row {
+  border: 1px dotted grey;
+}
+
+.box .row.header {
+  flex: 0 1 auto;
+  /* The above is shorthand for:
+  flex-grow: 0,
+  flex-shrink: 1,
+  flex-basis: auto
+  */
+}
+
+.box .row.content {
+  flex: 1 1 auto;
+}
+
+.box .row.footer {
+  flex: 0 1 40px;
 }
