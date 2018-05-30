@@ -21,11 +21,14 @@ class App extends Component {
     });
   };
   render() {
-    {console.log(this.state)}
+    {console.log(this.state.dataHere)}
     if(this.state.dataHere){
       const candidates = this.state.allData.map(candidate => {
-        return (<Results candidate={candidate} />)
+        return <Results candidate={candidate} />
       });
+      <div>
+        hello world!
+      </div>
     }
     return (
       <div>

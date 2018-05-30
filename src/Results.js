@@ -10,6 +10,7 @@ class Results extends Component{
     render(){
         const { candidate } = this.props;
         const { office, name, house } = candidate;
+        {console.log("hello world")}
         return(
             <div>
                 <div>
