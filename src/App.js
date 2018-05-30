@@ -7,25 +7,34 @@ import axios from "axios";
 import logo from "./informlogo.png";
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       dataHere: false,
-      allData: null
+      allData: [],
+      headerData: []
     };
   }
-  changeDataHere=(dummyList)=>{
+  changeDataHere = (dummyList, forHeader) => {
     this.setState({
       dataHere: true,
-      allData: dummyList
+      allData: dummyList,
+      headerData: forHeader
     });
   };
   render() {
-    {console.log(this.state)}
-    if(this.state.dataHere){
-      const candidates = this.state.allData.map(candidate => {
-        return (<Results candidate={candidate} />)
+    if (this.state.dataHere) {
+      const candidates = this.state.allData.map(person => {
+        return <Results candidate={person} />;
       });
+      return (
+        < div >
+          {this.state.headerData[0]}
+          {this.state.headerData[1]}
+          {this.state.headerData[2]}
+          {candidates}
+        </div >
+      );
     }
     return (
       <div>
@@ -37,12 +46,11 @@ class App extends Component {
           <h1 id="bborder">Enter in your address to find local elections</h1>
           <div className="bigdiv">
             <div className="search">{<Searchbar />}</div>
-              <div className="poorlynamedvariable">
-                <Button changeDataHere={this.changeDataHere}/>
-              </div>
+            <div className="poorlynamedvariable">
+              <Button changeDataHere={this.changeDataHere} />
             </div>
           </div>
-        <div className="Footer" />
+        </div>
       </div>
     );
   }
