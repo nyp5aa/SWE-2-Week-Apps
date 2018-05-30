@@ -27,17 +27,87 @@ class butt extends Component {
     axios.get(url)
       .then(res => {
         res.data.contests.map(con => {
-          let off = con.office;
-          if (con.candidates) {
+          let tempOffice = con.office;
+          if (con.candidates && con.type === "General" && con.level[0] === "country") {
             con.candidates.map(member => {
-              let nam = member.name;
-              let part = member.party;
-              let trips = {
-                office: off,
-                name: nam,
-                house: part
-              };
-              dummyList.push(trips);
+              console.log(member.channels == undefined);
+              let tempName = member.name;
+              let tempParty = member.party;
+              let tempCandidateUrl = member.candidateUrl;
+              let tempEmail = member.email;
+              let hasFacebook = false;
+              let hasTwitter = false;
+              if (member.channels != undefined) {
+                const tempSocialMedia = member.channels.map(channel => {
+                  let media = [];
+                  if (channel.type === "Facebook") {
+                    media.push(channel.type);
+                    media.push(channel.id)
+                    hasFacebook = true;
+                    return media;
+                  }
+                  if (channel.type === "Twitter") {
+                    media.push(channel.type);
+                    media.push(channel.id)
+                    hasTwitter = true;
+                    return media;
+                  }
+                });
+                if (tempSocialMedia.length === 2) {
+                  let eachCandidate = {
+                    office: tempOffice,
+                    name: tempName,
+                    party: tempParty,
+                    candidateUrl: tempCandidateUrl,
+                    email: tempEmail,
+                    gotFacebook: hasFacebook,
+                    facebook: tempSocialMedia[0],
+                    gotTwitter: hasTwitter,
+                    twitter: tempSocialMedia[1]
+                  };
+                  dummyList.push(eachCandidate);
+                }
+                else {
+                  if (hasFacebook) {
+                    let eachCandidate = {
+                      office: tempOffice,
+                      name: tempName,
+                      party: tempParty,
+                      candidateUrl: tempCandidateUrl,
+                      email: tempEmail,
+                      gotFacebook: hasFacebook,
+                      facebook: tempSocialMedia[0],
+                      gotTwitter: hasTwitter
+                    };
+                    dummyList.push(eachCandidate);
+                  }
+                  else {
+                    let eachCandidate = {
+                      office: tempOffice,
+                      name: tempName,
+                      party: tempParty,
+                      candidateUrl: tempCandidateUrl,
+                      email: tempEmail,
+                      gotFacebook: hasFacebook,
+                      gotTwitter: hasTwitter,
+                      twitter: tempSocialMedia[0]
+                    };
+                    dummyList.push(eachCandidate);
+                  }
+                }
+              }
+              else {
+                let eachCandidate = {
+                  office: tempOffice,
+                  name: tempName,
+                  party: tempParty,
+                  candidateUrl: tempCandidateUrl,
+                  email: tempEmail,
+                  gotFacebook: hasFacebook,
+                  gotTwitter: hasTwitter
+                };
+                dummyList.push(eachCandidate);
+              }
             });
           };
         });

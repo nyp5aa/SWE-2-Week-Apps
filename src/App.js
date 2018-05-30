@@ -21,9 +21,6 @@ class App extends Component {
     });
   };
   render() {
-    const candidates = this.state.allData.map(person => {
-      return person;
-    });
     if (this.state.dataHere) {
       const candidates = this.state.allData.map(person => {
         return <Results candidate={person} />;

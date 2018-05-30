@@ -16,13 +16,14 @@ class Searchbar extends Component {
             id="enterAddress"
             type="text"
             placeholder="Enter Address"
-            //size="90%"
+            size="30"
           />
         </div>
         <input
           id="enterCity"
           type="text"
-          placeholder="Enter City" /*size="90%"*/
+          placeholder="Enter City"
+          size="30"
         />
         <div />
         <div>
@@ -30,7 +31,7 @@ class Searchbar extends Component {
             id="enterState"
             type="text"
             placeholder="Enter State"
-            //size="40px"
+            size="30"
           />
         </div>
       </div>
