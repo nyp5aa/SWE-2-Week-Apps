@@ -3,23 +3,23 @@ import './App.css';
 
 let list = [];
 
-class Results extends Component{
-    constructor(props){
+class Results extends Component {
+    constructor(props) {
         super(props);
     }
-    render(){
+    render() {
         const { candidate } = this.props;
         const { office, name, house } = candidate;
-        return(
+        return (
             <div>
                 <div>
-                    { name }
+                    {name}
                 </div>
                 <div>
-                    { house }
+                    {house}
                 </div>
                 <div>
-                    { office }
+                    {office}
                 </div>
             </div>
         );
