@@ -23,28 +23,27 @@ class butt extends Component {
     document.getElementById("enterCity").value = "";
     document.getElementById("enterState").value = "";
     let dummyList = [];
-    this.props.changeDataHere();
-    axios.get('https://www.googleapis.com/civicinfo/v2/voterinfo?key=AIzaSyBcEH-TahbG4-yX_A-BjZ7lp_8XZdvbxGo&address=' + percentTwenty + '&electionId=2000')
-    .then(res => {
-        res.data.contests.map(con =>{
-            let off = con.office;
-            if(con.candidates){
-                con.candidates.map(member =>{
-                    let nam = member.name;
-                    let part = member.party;
-                    let trips = {
-                        office: off,
-                        name: nam,
-                        house: part
-                    };
-                    dummyList.push(trips);
-                });
-            };
+    const url = 'https://www.googleapis.com/civicinfo/v2/voterinfo?key=AIzaSyBcEH-TahbG4-yX_A-BjZ7lp_8XZdvbxGo&address=' + percentTwenty + '&electionId=2000';
+    axios.get(url)
+      .then(res => {
+        res.data.contests.map(con => {
+          let off = con.office;
+          if (con.candidates) {
+            con.candidates.map(member => {
+              let nam = member.name;
+              let part = member.party;
+              let trips = {
+                office: off,
+                name: nam,
+                house: part
+              };
+              dummyList.push(trips);
+            });
+          };
         });
-    }).then(
-      this.props.changeDataHere(dummyList)
-    );
-}
+        this.props.changeDataHere(dummyList);
+      });
+  }
   render() {
     return (
       <div className="buttonDiv">
