@@ -51,7 +51,6 @@ class App extends Component {
             </div>
           </div>
         </div>
-        <div className="Footer" />
       </div>
     );
   }
