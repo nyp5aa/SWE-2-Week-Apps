@@ -6,6 +6,11 @@
   text-align: center;
 }
 
+/* .spacer {
+  padding-top: 40px;
+  background-color: purple;
+} */
+
 .search {
   padding-bottom: 40px;
   text-align: center;
@@ -113,10 +118,10 @@ body {
   flex: 0 1 40px;
 }
 
-.senate{
-  padding-bottom: 200px
+.senate {
+  padding-bottom: 20px;
 }
 
-.house{
-  padding-top: 200px;
+.house {
+  padding-top: 20px;
 }
