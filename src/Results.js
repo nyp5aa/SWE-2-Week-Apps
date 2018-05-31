@@ -4,8 +4,6 @@ import "./Results.css";
 import facebooklogo from "./facebooklogo.png";
 import twitterlogo from "./twitterlogo.png";
 
-let list = [];
-
 class Results extends Component {
   constructor(props) {
     super(props);
