@@ -26,46 +26,42 @@ class Results extends Component {
 
   render() {
     const { candidate } = this.props;
-    const {
-      office,
-      name,
-      party,
-      candidateUrl,
-      email
-    } = candidate;
+    const { office, name, party, candidateUrl, email } = candidate;
 
     let affiliation_color = this.colorizing_parties(party);
 
     return (
-      <div className="spacer">
-        <div className="textbox" id="border">
-          <div className="officeText">{office}</div>
+      <div className="textbox" id="border">
+        <div className="officeText">{office}</div>
 
-          {candidate.facebook && (
-            <a href={candidate.facebook} target="_blank">
-              <img
-                src={facebooklogo}
-                className="facebook-logo"
-                alt="facebook profile"
-              />{" "}
-            </a>
-          )}
-          {candidate.twitter && (
-            <a href={candidate.twitter} target="_blank">
-              <img
-                src={twitterlogo}
-                className="twitter-logo"
-                alt="twitter profile"
-              />{" "}
-            </a>
-          )}
+        {candidate.facebook && (
+          <a href={candidate.facebook} target="_blank">
+            <img
+              src={facebooklogo}
+              className="facebook-logo"
+              alt="facebook profile"
+            />{" "}
+          </a>
+        )}
+        {candidate.twitter && (
+          <a href={candidate.twitter} target="_blank">
+            <img
+              src={twitterlogo}
+              className="twitter-logo"
+              alt="twitter profile"
+            />{" "}
+          </a>
+        )}
 
-          <div className="nameText">{name}</div>
+        <div className="nameText">{name}</div>
 
-          <div className={affiliation_color}>{party}</div>
-          <div className="emailText">{email}</div>
-          <div className="websiteText">{candidateUrl}</div>
-        </div>
+        <div className={affiliation_color}>{party}</div>
+        <div className="emailText">{email}</div>
+        <a href={candidateUrl} target="_blank">
+          <div className="websiteText" href={candidateUrl} target="_blank">
+            {candidateUrl}
+          </div>
+        </a>
       </div>
     );
   }

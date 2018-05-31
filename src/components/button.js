@@ -17,8 +17,7 @@ class butt extends Component {
     let addressvalue = document.getElementById("enterAddress").value;
     let cityvalue = document.getElementById("enterCity").value;
     let statevalue = document.getElementById("enterState").value;
-    let percentTwenty =
-      addressvalue + " " + cityvalue + " " + statevalue + " ";
+    let percentTwenty = addressvalue + " " + cityvalue + " " + statevalue + " ";
     document.getElementById("enterAddress").value = "";
     document.getElementById("enterCity").value = "";
     document.getElementById("enterState").value = "";
@@ -63,51 +62,22 @@ class butt extends Component {
                     email: tempEmail,
                     gotFacebook: hasFacebook,
                     facebook: tempSocialMedia[0],
+                    gotTwitter: hasTwitter
+                  };
+                  dummyList.push(eachCandidate);
+                } else {
+                  let eachCandidate = {
+                    office: tempOffice,
+                    name: tempName,
+                    party: tempParty,
+                    candidateUrl: tempCandidateUrl,
+                    email: tempEmail,
+                    gotFacebook: hasFacebook,
                     gotTwitter: hasTwitter,
-                    twitter: tempSocialMedia[1]
+                    twitter: tempSocialMedia[0]
                   };
                   dummyList.push(eachCandidate);
                 }
-                else {
-                  if (hasFacebook) {
-                    let eachCandidate = {
-                      office: tempOffice,
-                      name: tempName,
-                      party: tempParty,
-                      candidateUrl: tempCandidateUrl,
-                      email: tempEmail,
-                      gotFacebook: hasFacebook,
-                      facebook: tempSocialMedia[0],
-                      gotTwitter: hasTwitter
-                    };
-                    dummyList.push(eachCandidate);
-                  }
-                  else {
-                    let eachCandidate = {
-                      office: tempOffice,
-                      name: tempName,
-                      party: tempParty,
-                      candidateUrl: tempCandidateUrl,
-                      email: tempEmail,
-                      gotFacebook: hasFacebook,
-                      gotTwitter: hasTwitter,
-                      twitter: tempSocialMedia[0]
-                    };
-                    dummyList.push(eachCandidate);
-                  }
-                }
-              }
-              else {
-                let eachCandidate = {
-                  office: tempOffice,
-                  name: tempName,
-                  party: tempParty,
-                  candidateUrl: tempCandidateUrl,
-                  email: tempEmail,
-                  gotFacebook: hasFacebook,
-                  gotTwitter: hasTwitter
-                };
-                dummyList.push(eachCandidate);
               }
             });
           };
@@ -119,7 +89,9 @@ class butt extends Component {
         forFooter.push(res.data.state[0].local_jurisdiction.electionAdministrationBody.electionOfficials[0]);
         this.props.changeDataHere(dummyList, forHeader, forFooter);
       });
-  }
+      this.props.changeDataHere(dummyList, forHeader);
+    });
+  };
   render() {
     return (
       <div className="buttonDiv">

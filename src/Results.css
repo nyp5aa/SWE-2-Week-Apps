@@ -1,4 +1,17 @@
-.textbox {
+.senate {
+  background-color: white;
+  height: 80%;
+  border-style: solid;
+  border-color: rgb(204, 116, 33);
+  width: 85%;
+  margin: 0 auto;
+  font-family: "Calibri";
+  padding-top: 5px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+.house {
   background-color: white;
   height: 80%;
   border-style: solid;
@@ -12,10 +25,10 @@
 }
 
 /* the blue space separating text boxes */
-.spacer {
+/* .spacer {
   padding-top: 40px;
-  background-color: lightblue;
-}
+  background-color: red;
+} */
 
 /* text formatting */
 
@@ -27,42 +40,42 @@
 .nameText {
   font-family: "Calibri";
   font-size: 32px;
-  font-style: "bold";
+  font-weight: bold;
 }
 
 /* making political affiliations have color */
 .gray {
   font-family: "Calibri";
   font-size: 20px;
-  font-style: bold;
+  font-weight: bold;
   font-style: italic;
 }
 .blue {
   font-family: "Calibri";
   font-size: 20px;
   font-style: italic;
-  font-style: bold;
+  font-weight: bold;
   color: blue;
 }
 .red {
   font-family: "Calibri";
   font-size: 20px;
   font-style: italic;
-  font-style: bold;
+  font-weight: bold;
   color: red;
 }
 .green {
   font-family: "Calibri";
   font-size: 20px;
   font-style: italic;
-  font-style: bold;
+  font-weight: bold;
   color: green;
 }
 .yellow {
   font-family: "Calibri";
   font-size: 20px;
   font-style: italic;
-  font-style: bold;
+  font-weight: bold;
   color: darkgoldenrod;
 }
 
