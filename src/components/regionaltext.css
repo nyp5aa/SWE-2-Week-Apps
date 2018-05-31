@@ -1,0 +1,15 @@
+.footer-address{
+    float: right;
+}
+
+.textbox {
+    background-color: white;
+    height: 80%;
+    border-style: solid;
+    border-color: rgb(204, 116, 33);
+    margin: 0 auto;
+    font-family: "Calibri";
+    padding-top: 5px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+  }

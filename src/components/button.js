@@ -32,7 +32,7 @@ class butt extends Component {
         forHeader.push(res.data.state[0].electionAdministrationBody.electionRegistrationUrl);
         res.data.contests.map(con => {
           let tempOffice = con.office;
-          if (con.candidates && con.type === "General" && con.level[0] === "country") {
+          if (con.candidates && con.type === "General" && con.level && con.level[0] === "country") {
             con.candidates.map(member => {
               let tempName = member.name;
               let tempParty = member.party;
@@ -112,7 +112,12 @@ class butt extends Component {
             });
           };
         });
-        this.props.changeDataHere(dummyList, forHeader);
+        let forFooter = [];
+        forFooter.push(res.data.state[0].local_jurisdiction.name);
+        forFooter.push(res.data.state[0].local_jurisdiction.electionAdministrationBody.electionInfoUrl);
+        forFooter.push(res.data.state[0].local_jurisdiction.electionAdministrationBody.physicalAddress);
+        forFooter.push(res.data.state[0].local_jurisdiction.electionAdministrationBody.electionOfficials[0]);
+        this.props.changeDataHere(dummyList, forHeader, forFooter);
       });
   }
   render() {

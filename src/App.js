@@ -6,6 +6,7 @@ import Results from "./Results";
 import axios from "axios";
 import logo from "./informlogo.png";
 import RegisterText from "./components/registertext";
+import RegionalText from "./components/regionaltext";
 
 class App extends Component {
   constructor(props) {
@@ -13,20 +14,22 @@ class App extends Component {
     this.state = {
       dataHere: false,
       allData: [],
-      headerData: []
+      headerData: [],
+      footerData: []
     };
   }
-  changeDataHere = (dummyList, forHeader) => {
+  changeDataHere = (dummyList, forHeader, forFooter) => {
     this.setState({
       dataHere: true,
       allData: dummyList,
-      headerData: forHeader
+      headerData: forHeader,
+      footerData: forFooter
     });
   };
   splitSenateAndHouse(candidates) {
     let senateEndIndex = 0;
     for (let i = 0; i < this.state.allData.length; i++) {
-      if (this.state.allData[i].office.includes("Senate")) {
+      if (this.state.allData[i].office.includes("Senat")) {
         senateEndIndex++;
       }
     }
@@ -50,6 +53,7 @@ class App extends Component {
             HOUSE
             {congress[1]}
           </div>}
+          <RegionalText dataForFooter={this.state.footerData} />
         </div >
       );
     }
