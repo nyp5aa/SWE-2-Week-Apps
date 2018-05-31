@@ -117,6 +117,7 @@ class butt extends Component {
             bsStyle="success"
             bsSize="large"
             onClick={this.takeInput}
+            type="submit"
           >
             GO
           </Button>

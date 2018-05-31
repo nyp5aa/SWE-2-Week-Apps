@@ -1,3 +1,8 @@
+.individiual-candidate-display{
+  padding-top: 7px;
+  padding-bottom: 15px;
+}
+
 .senate {
   background-color: white;
   height: 80%;
@@ -7,7 +12,7 @@
   margin: 0 auto;
   font-family: "Calibri";
   padding-top: 5px;
-  padding-bottom: 20px;
+  padding-bottom: 5px;
   padding-left: 20px;
 }
 
@@ -20,7 +25,7 @@
   margin: 0 auto;
   font-family: "Calibri";
   padding-top: 5px;
-  padding-bottom: 20px;
+  padding-bottom: 5px;
   padding-left: 20px;
 }
 
@@ -40,7 +45,6 @@
 .nameText {
   font-family: "Calibri";
   font-size: 32px;
-  font-weight: bold;
 }
 
 /* making political affiliations have color */
