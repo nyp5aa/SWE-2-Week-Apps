@@ -44,13 +44,11 @@ class butt extends Component {
                 const tempSocialMedia = member.channels.map(channel => {
                   let media = [];
                   if (channel.type === "Facebook") {
-                    media.push(channel.type);
                     media.push(channel.id)
                     hasFacebook = true;
                     return media;
                   }
                   if (channel.type === "Twitter") {
-                    media.push(channel.type);
                     media.push(channel.id)
                     hasTwitter = true;
                     return media;
