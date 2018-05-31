@@ -26,10 +26,6 @@ class Results extends Component {
     return affiliation;
   }
 
-  openToSocial = (link) => {
-    window.open(link);
-  }
-
   render() {
     const { candidate } = this.props;
     const {
