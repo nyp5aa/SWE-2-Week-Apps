@@ -33,17 +33,8 @@ class Results extends Component {
       name,
       party,
       candidateUrl,
-      email,
-      gotFacebook,
-      gotTwitter
+      email
     } = candidate;
-
-    if (gotFacebook) {
-      const { facebook } = candidate;
-    }
-    if (gotTwitter) {
-      const { twitter } = candidate;
-    }
 
     let affiliation_color = this.colorizing_parties(party);
 

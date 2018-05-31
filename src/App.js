@@ -23,15 +23,33 @@ class App extends Component {
       headerData: forHeader
     });
   };
+  splitSenateAndHouse(candidates) {
+    let senateEndIndex = 0;
+    for (let i = 0; i < this.state.allData.length; i++) {
+      if (this.state.allData[i].office.includes("Senate")) {
+        senateEndIndex++;
+      }
+    }
+    let returnThis = [candidates.slice(0, senateEndIndex), candidates.slice(senateEndIndex, candidates.length)];
+    return returnThis;
+  }
   render() {
     if (this.state.dataHere) {
       const candidates = this.state.allData.map(person => {
         return <Results candidate={person} />;
       });
+      let congress = this.splitSenateAndHouse(candidates);
       return (
         < div >
           <RegisterText dataForHeader={this.state.headerData} />
-          {candidates}
+          {congress[0].length != 0 && <div className="senate">
+            SENATE
+            {congress[0]}
+          </div>}
+          {congress[1].length != 0 && <div className="house">
+            HOUSE
+            {congress[1]}
+          </div>}
         </div >
       );
     }

@@ -112,3 +112,11 @@ body {
 .box .row.footer {
   flex: 0 1 40px;
 }
+
+.senate{
+  padding-bottom: 200px
+}
+
+.house{
+  padding-top: 200px;
+}
