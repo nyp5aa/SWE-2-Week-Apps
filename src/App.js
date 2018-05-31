@@ -52,11 +52,14 @@ class App extends Component {
       return (
         <div>
           <RegisterText dataForHeader={this.state.headerData} />
-          {congress[0].length != 0 && <div className="senate">
+          {congress[0].length != 0 && (
+            <div className="senate">
               Senate: On the Ballot
               {congress[0]}
-            </div>}
-          {congress[1].length != 0 && <div className="house">
+            </div>
+          )}
+          {congress[1].length != 0 && (
+            <div className="house">
               <div className="officeText">
                 House of Representative: On the Ballot
               </div>
