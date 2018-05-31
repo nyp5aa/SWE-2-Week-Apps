@@ -1,4 +1,4 @@
-.Background2 {
+.textbox {
   background-color: white;
   height: 80%;
   border-style: solid;
@@ -11,24 +11,60 @@
   padding-left: 20px;
 }
 
-.Footer2 {
-  padding-top: 50px;
+/* the blue space separating text boxes */
+.spacer {
+  padding-top: 40px;
   background-color: lightblue;
 }
 
+/* text formatting */
+
 .officeText {
   font-family: "Calibri";
-  font-size: 16px;
+  font-size: 24px;
   font-style: bold;
 }
 .nameText {
   font-family: "Calibri";
-  font-size: 50px;
+  font-size: 32px;
   font-style: "bold";
 }
 
-.partyText {
+/* making political affiliations have color */
+.gray {
   font-family: "Calibri";
   font-size: 16px;
   font-style: italic;
+}
+.blue {
+  font-family: "Calibri";
+  font-size: 16px;
+  font-style: italic;
+}
+.red {
+  font-family: "Calibri";
+  font-size: 16px;
+  font-style: italic;
+}
+.green {
+  font-family: "Calibri";
+  font-size: 16px;
+  font-style: italic;
+}
+
+.websiteText {
+  font-family: "Calibri";
+  font-size: 16px;
+}
+.emailText {
+  font-family: "Calibri";
+  font-size: 16px;
+}
+.facebookText {
+  font-family: "Calibri";
+  font-size: 16px;
+}
+.twitterText {
+  font-family: "Calibri";
+  font-size: 16px;
 }
