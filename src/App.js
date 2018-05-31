@@ -66,6 +66,7 @@ class App extends Component {
               {congress[1]}
             </div>
           )}
+          <RegionalText dataForFooter={this.state.footerData} />
         </div>
       );
     }
