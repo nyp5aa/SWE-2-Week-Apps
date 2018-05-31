@@ -42,12 +42,31 @@ class Results extends Component {
       <div className="spacer">
         <div className="textbox" id="border">
           <div className="officeText">{office}</div>
+
+          {candidate.facebook && (
+            <a href={candidate.facebook} target="_blank">
+              <img
+                src={facebooklogo}
+                className="facebook-logo"
+                alt="facebook profile"
+              />{" "}
+            </a>
+          )}
+          {candidate.twitter && (
+            <a href={candidate.twitter} target="_blank">
+              <img
+                src={twitterlogo}
+                className="twitter-logo"
+                alt="twitter profile"
+              />{" "}
+            </a>
+          )}
+
           <div className="nameText">{name}</div>
+
           <div className={affiliation_color}>{party}</div>
-          <div className="websiteText">{candidateUrl}</div>
           <div className="emailText">{email}</div>
-          {candidate.facebook && <a href={candidate.facebook} target="_blank"><img src={facebooklogo} className="social-media-logo" alt="facebook profile" /> </a>}
-          {candidate.twitter && <a href={candidate.twitter} target="_blank"><img src={twitterlogo} className="social-media-logo" alt="twitter profile" /> </a>}
+          <div className="websiteText">{candidateUrl}</div>
         </div>
       </div>
     );
