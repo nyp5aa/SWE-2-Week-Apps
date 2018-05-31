@@ -10,7 +10,7 @@ class RegisterText extends Component {
     const { dataForHeader } = this.props;
     return (
       <div className="headerForResults">
-        Are you registerd to vote in {dataForHeader[0]}, {dataForHeader[1]}?{" "}
+        Are you registered to vote in {dataForHeader[0]}, {dataForHeader[1]}?{" "}
         <ButtonToolbar>
           <Button
             id="registerHereAddress"
