@@ -20,7 +20,9 @@ class RegisterText extends Component {
         </div>
 
         <div className="textbox">
-          <div className="Website"> {dataForFooter[1]}</div>
+          <a href={dataForFooter[1]} target="_blank">
+            <div className="Website"> {dataForFooter[1]}</div>
+          </a>
           <div className="footer-address">
             <img src={location} className="Location" alt="location" />
             <div> {dataForFooter[2].line1}</div>
@@ -34,11 +36,13 @@ class RegisterText extends Component {
           <div>
             <img src={email} className="Email" alt="email" />{" "}
             {dataForFooter[3].emailAddress}
+          </div>
+          <div>
             <img src={phone} className="Phone" alt="phone" />{" "}
             {dataForFooter[3].officePhoneNumber}
           </div>
         </div>
-      </div>
+      </div >
     );
   }
 }
