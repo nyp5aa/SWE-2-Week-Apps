@@ -31,17 +31,31 @@ class App extends Component {
     for (let i = 0; i < this.state.allData.length; i++) {
       if (this.state.allData[i].office.includes("Senat")) {
         senateEndIndex++;
-        console.log(this.state.allData[i].office);
-        console.log(this.state.allData[i].office.includes("Senate"));
       }
     }
-    console.log(senateEndIndex);
     let returnThis = [
       candidates.slice(0, senateEndIndex),
       candidates.slice(senateEndIndex, candidates.length)
     ];
-    console.log(returnThis);
     return returnThis;
+  }
+  getProperName(congress) {
+    let returnSenate = "";
+    let returnHouse = "";
+    for (let i = 0; i < this.state.allData.length; i++) {
+      if (this.state.allData[i].office.includes("Senat")) {
+        returnSenate = this.state.allData[i].office
+      }
+      else {
+        returnHouse = this.state.allData[i].office
+      }
+    }
+    if (congress === "senate") {
+      return returnSenate;
+    }
+    else {
+      return returnHouse;
+    }
   }
   render() {
     if (this.state.dataHere) {
@@ -49,20 +63,26 @@ class App extends Component {
         return <Results candidate={person} />;
       });
       let congress = this.splitSenateAndHouse(candidates);
+      let properSenateName = this.getProperName("senate");
+      let properHouseName = this.getProperName("house");
       return (
         <div>
           <RegisterText dataForHeader={this.state.headerData} />
+          <div className="officeText">
+            Senate: {properSenateName} election
+          </div>
           {congress[0].length != 0 && <div className="senate">
-            Senate: On the Ballot
-              {congress[0]}
+            {congress[0]}
           </div>}
+          <div className="spacer" />
+          <div className="officeText">
+            House of Representative: {properHouseName} election
+          </div>
           {congress[1].length != 0 && <div className="house">
-            <div className="officeText">
-              House of Representative: On the Ballot
-              </div>
             {congress[1]}
           </div>
           }
+          <div className="spacer" />
           <RegionalText dataForFooter={this.state.footerData} />
         </div>
       );
@@ -76,7 +96,7 @@ class App extends Component {
           </header>
           <h1 id="bborder">Enter in your address to find local elections</h1>
           <div className="bigdiv">
-            <div className="search">{<Searchbar />}</div>
+            <div className="search">{<Searchbar changeDataHere={this.changeDataHere} />}</div>
             <div className="poorlynamedvariable">
               <Button changeDataHere={this.changeDataHere} />
             </div>

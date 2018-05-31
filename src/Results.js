@@ -26,13 +26,12 @@ class Results extends Component {
 
   render() {
     const { candidate } = this.props;
-    const { office, name, party, candidateUrl, email } = candidate;
+    const { name, party, candidateUrl, email } = candidate;
 
     let affiliation_color = this.colorizing_parties(party);
 
     return (
-      <div className="textbox" id="border">
-        <div className="officeText">{office}</div>
+      <div className="individiual-candidate-display">
 
         {candidate.facebook && (
           <a href={candidate.facebook} target="_blank">
