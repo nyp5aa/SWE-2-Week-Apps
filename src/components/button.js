@@ -89,8 +89,6 @@ class butt extends Component {
         forFooter.push(res.data.state[0].local_jurisdiction.electionAdministrationBody.electionOfficials[0]);
         this.props.changeDataHere(dummyList, forHeader, forFooter);
       });
-      this.props.changeDataHere(dummyList, forHeader);
-    });
   };
   render() {
     return (
