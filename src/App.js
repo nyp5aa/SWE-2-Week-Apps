@@ -5,6 +5,7 @@ import Button from "./components/button";
 import Results from "./Results";
 import axios from "axios";
 import logo from "./informlogo.png";
+import RegisterText from "./components/registertext";
 
 class App extends Component {
   constructor(props) {
@@ -29,9 +30,7 @@ class App extends Component {
       });
       return (
         < div >
-          {this.state.headerData[0]}
-          {this.state.headerData[1]}
-          {this.state.headerData[2]}
+          <RegisterText dataForHeader={this.state.headerData} />
           {candidates}
         </div >
       );
