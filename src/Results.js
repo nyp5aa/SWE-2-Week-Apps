@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 import "./Results.css";
+import facebooklogo from "./facebooklogo.png";
+import twitterlogo from "./twitterlogo.png";
 
 let list = [];
 
@@ -36,6 +38,13 @@ class Results extends Component {
       gotTwitter
     } = candidate;
 
+    if (gotFacebook) {
+      const { facebook } = candidate;
+    }
+    if (gotTwitter) {
+      const { twitter } = candidate;
+    }
+
     let affiliation_color = this.colorizing_parties(party);
 
     return (
@@ -46,8 +55,8 @@ class Results extends Component {
           <div className={affiliation_color}>{party}</div>
           <div className="websiteText">{candidateUrl}</div>
           <div className="emailText">{email}</div>
-          <div className="facebookText">{gotFacebook}</div>
-          <div className="twitterText">{gotTwitter}</div>
+          {candidate.facebook && <a href={candidate.facebook} target="_blank"><img src={facebooklogo} className="social-media-logo" alt="facebook profile" /> </a>}
+          {candidate.twitter && <a href={candidate.twitter} target="_blank"><img src={twitterlogo} className="social-media-logo" alt="twitter profile" /> </a>}
         </div>
       </div>
     );

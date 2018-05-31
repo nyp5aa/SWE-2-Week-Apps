@@ -33,23 +33,37 @@
 /* making political affiliations have color */
 .gray {
   font-family: "Calibri";
-  font-size: 16px;
+  font-size: 20px;
+  font-style: bold;
   font-style: italic;
 }
 .blue {
   font-family: "Calibri";
-  font-size: 16px;
+  font-size: 20px;
   font-style: italic;
+  font-style: bold;
+  color: blue;
 }
 .red {
   font-family: "Calibri";
-  font-size: 16px;
+  font-size: 20px;
   font-style: italic;
+  font-style: bold;
+  color: red;
 }
 .green {
   font-family: "Calibri";
-  font-size: 16px;
+  font-size: 20px;
   font-style: italic;
+  font-style: bold;
+  color: green;
+}
+.yellow {
+  font-family: "Calibri";
+  font-size: 20px;
+  font-style: italic;
+  font-style: bold;
+  color: darkgoldenrod;
 }
 
 .websiteText {
@@ -67,4 +81,8 @@
 .twitterText {
   font-family: "Calibri";
   font-size: 16px;
+}
+
+.social-media-logo{
+  size: 50px;
 }
