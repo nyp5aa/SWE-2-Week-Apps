@@ -28,9 +28,16 @@ class App extends Component {
     for (let i = 0; i < this.state.allData.length; i++) {
       if (this.state.allData[i].office.includes("Senate")) {
         senateEndIndex++;
+        console.log(this.state.allData[i].office);
+        console.log(this.state.allData[i].office.includes("Senate"));
       }
     }
-    let returnThis = [candidates.slice(0, senateEndIndex), candidates.slice(senateEndIndex, candidates.length)];
+    console.log(senateEndIndex);
+    let returnThis = [
+      candidates.slice(0, senateEndIndex),
+      candidates.slice(senateEndIndex, candidates.length)
+    ];
+    console.log(returnThis);
     return returnThis;
   }
   render() {
@@ -40,17 +47,22 @@ class App extends Component {
       });
       let congress = this.splitSenateAndHouse(candidates);
       return (
-        < div >
+        <div>
           <RegisterText dataForHeader={this.state.headerData} />
-          {congress[0].length != 0 && <div className="senate">
-            SENATE
-            {congress[0]}
-          </div>}
-          {congress[1].length != 0 && <div className="house">
-            HOUSE
-            {congress[1]}
-          </div>}
-        </div >
+          {congress[0].length != 0 && (
+            <div className="senate">
+              Senate: On the Ballot
+              {congress[0]}
+            </div>
+          )}
+          {congress[1].length != 0 && (
+            <div className="house">
+              <div className="officeText" />
+              House of Representative: On the Ballot
+              {congress[1]}
+            </div>
+          )}
+        </div>
       );
     }
     return (
