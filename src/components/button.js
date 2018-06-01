@@ -50,18 +50,20 @@ class butt extends Component {
             let hasTwitter = false;
             if (member.channels != undefined) {
               const tempSocialMedia = member.channels.map(channel => {
-                let media = [];
                 if (channel.type === "Facebook") {
-                  media.push(channel.id);
                   hasFacebook = true;
-                  return media;
+                  return channel.id;
                 }
                 if (channel.type === "Twitter") {
-                  media.push(channel.id);
                   hasTwitter = true;
-                  return media;
+                  return channel.id;
                 }
               });
+              for (let i = 0; i < tempSocialMedia.length; i++) {
+                if (tempSocialMedia[i] === undefined) {
+                  tempSocialMedia.splice(i, 1);
+                }
+              }
               if (tempSocialMedia.length === 2) {
                 let eachCandidate = {
                   office: tempOffice,
@@ -71,22 +73,50 @@ class butt extends Component {
                   email: tempEmail,
                   gotFacebook: hasFacebook,
                   facebook: tempSocialMedia[0],
-                  gotTwitter: hasTwitter
+                  gotTwitter: hasTwitter,
+                  twitter: tempSocialMedia[1]
                 };
                 dummyList.push(eachCandidate);
               } else {
-                let eachCandidate = {
-                  office: tempOffice,
-                  name: tempName,
-                  party: tempParty,
-                  candidateUrl: tempCandidateUrl,
-                  email: tempEmail,
-                  gotFacebook: hasFacebook,
-                  gotTwitter: hasTwitter,
-                  twitter: tempSocialMedia[0]
-                };
-                dummyList.push(eachCandidate);
+                if (hasFacebook) {
+                  let eachCandidate = {
+                    office: tempOffice,
+                    name: tempName,
+                    party: tempParty,
+                    candidateUrl: tempCandidateUrl,
+                    email: tempEmail,
+                    gotFacebook: hasFacebook,
+                    facebook: tempSocialMedia[0],
+                    gotTwitter: hasTwitter
+                  };
+                  dummyList.push(eachCandidate);
+                }
+                else {
+                  let eachCandidate = {
+                    office: tempOffice,
+                    name: tempName,
+                    party: tempParty,
+                    candidateUrl: tempCandidateUrl,
+                    email: tempEmail,
+                    gotFacebook: hasFacebook,
+                    gotTwitter: hasTwitter,
+                    twitter: tempSocialMedia[0]
+                  };
+                  dummyList.push(eachCandidate);
+                }
               }
+            }
+            else {
+              let eachCandidate = {
+                office: tempOffice,
+                name: tempName,
+                party: tempParty,
+                candidateUrl: tempCandidateUrl,
+                email: tempEmail,
+                gotFacebook: false,
+                gotTwitter: false
+              };
+              dummyList.push(eachCandidate);
             }
           });
         }
