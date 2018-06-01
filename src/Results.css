@@ -1,0 +1,114 @@
+.individiual-candidate-display{
+  padding-top: 7px;
+  padding-bottom: 15px;
+}
+
+.senate {
+  background-color: white;
+  height: 80%;
+  border-style: solid;
+  border-color: rgb(204, 116, 33);
+  width: 85%;
+  margin: 0 auto;
+  font-family: "Calibri";
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+}
+
+.house {
+  background-color: white;
+  height: 80%;
+  border-style: solid;
+  border-color: rgb(204, 116, 33);
+  width: 85%;
+  margin: 0 auto;
+  font-family: "Calibri";
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+}
+
+/* the space separating text boxes */
+.spacer {
+  padding-top: 40px;
+}
+
+/* text formatting */
+
+.officeText {
+  font-family: "Calibri";
+  font-size: 24px;
+  font-style: bold;
+}
+.nameText {
+  font-family: "Calibri";
+  font-size: 32px;
+}
+
+/* making political affiliations have color */
+.gray {
+  font-family: "Calibri";
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+}
+.blue {
+  font-family: "Calibri";
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+  color: blue;
+}
+.red {
+  font-family: "Calibri";
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+  color: red;
+}
+.green {
+  font-family: "Calibri";
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+  color: green;
+}
+.yellow {
+  font-family: "Calibri";
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+  color: darkgoldenrod;
+}
+
+.websiteText {
+  font-family: "Calibri";
+  font-size: 16px;
+}
+.emailText {
+  font-family: "Calibri";
+  font-size: 16px;
+  font-weight: bold;
+  float: right;
+  padding-right: 20px;
+}
+.facebookText {
+  font-family: "Calibri";
+  font-size: 16px;
+}
+.twitterText {
+  font-family: "Calibri";
+  font-size: 16px;
+}
+
+.facebook-logo {
+  height: 60px;
+  padding-right: 25px;
+  float: right;
+}
+.twitter-logo {
+  height: 60px;
+  padding-right: 20px;
+  float: right;
+}

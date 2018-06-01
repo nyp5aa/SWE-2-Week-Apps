@@ -1,0 +1,15 @@
+.headerForResults {
+  padding-top: 15px;
+  padding-bottom: 30px;
+  background-color: lightblue;
+  height: 100%;
+  text-align: center;
+  font-size: 18px;
+  font-family: "Calibri";
+}
+
+#registerHereAddress {
+  color: rgb(204, 116, 33);
+  font-size: 18px;
+  font-family: "Calibri";
+}

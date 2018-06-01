@@ -1,12 +1,13 @@
-/* @import url(“https://fonts.googleapis.com/css?family=Roboto“); */
-/* @import url(“https://fonts.googleapis.com/css?family=Tangerine“); */
-
 .App {
   text-align: center;
 }
 
 .App-header {
   text-align: center;
+}
+
+.spacer {
+  padding-top: 40px;
 }
 
 .search {
@@ -81,7 +82,13 @@
   display: inline-block;
 }
 
-/* making it work */
+.officeText{
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
+}
+
+/*making it work */
 html,
 body {
   height: 100%;
@@ -114,4 +121,12 @@ body {
 
 .box .row.footer {
   flex: 0 1 40px;
+}
+
+.senate {
+  margin-bottom: 100px;
+}
+
+.house {
+  margin-top: 100px;
 }
