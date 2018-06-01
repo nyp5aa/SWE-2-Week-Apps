@@ -69,21 +69,27 @@ class App extends Component {
         <div>
           <RegisterText dataForHeader={this.state.headerData} />
           {congress[0].length != 0 && (
-            <div className="senate">
-              Senate: {properSenateName} election
-              {congress[0]}
+            <div>
+              <div className="officeText">
+                Senate: {properSenateName} election
+              </div>
+              <div className="senate">
+                {congress[0]}
+              </div>
             </div>
           )}
-              <div className="spacer" />
+          <div className="spacer" />
           {congress[1].length != 0 && (
-            <div className="house">
+            <div>
               <div className="officeText">
                 House of Representative: {properHouseName} election
+                </div>
+              <div className="house">
+                {congress[1]}
               </div>
-              {congress[1]}
             </div>
           )}
-              <div className="spacer" />
+          <div className="spacer" />
           <RegionalText dataForFooter={this.state.footerData} />
         </div>
       );

@@ -12,13 +12,13 @@ class Results extends Component {
   // making political affiliation have colors
   colorizing_parties(party) {
     let affiliation = "gray";
-    if (party.includes("Democratic")) {
+    if (party.includes("Democra")) {
       affiliation = "blue";
-    } else if (party.includes("Republican")) {
+    } else if (party.includes("Republ")) {
       affiliation = "red";
     } else if (party.includes("Green")) {
       affiliation = "green";
-    } else if (party.includes("Libertarian")) {
+    } else if (party.includes("Libert")) {
       affiliation = "yellow";
     }
     return affiliation;

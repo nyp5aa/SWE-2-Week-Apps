@@ -10,7 +10,6 @@ class Searchbar extends Component {
   }
   handleKeyPress = (event) => {
     if (event.key == 'Enter') {
-      console.log("got here")
       this.takeInput();
     }
   };
@@ -23,38 +22,63 @@ class Searchbar extends Component {
     document.getElementById("enterCity").value = "";
     document.getElementById("enterState").value = "";
     let dummyList = [];
-    const url = 'https://www.googleapis.com/civicinfo/v2/voterinfo?key=AIzaSyBcEH-TahbG4-yX_A-BjZ7lp_8XZdvbxGo&address=' + percentTwenty + '&electionId=2000';
-    axios.get(url)
-      .then(res => {
-        let forHeader = [];
-        forHeader.push(res.data.state[0].local_jurisdiction.name);
-        forHeader.push(res.data.state[0].name);
-        forHeader.push(res.data.state[0].electionAdministrationBody.electionRegistrationUrl);
-        res.data.contests.map(con => {
-          let tempOffice = con.office;
-          if (con.candidates && con.type === "General" && con.level && con.level[0] === "country") {
-            con.candidates.map(member => {
-              let tempName = member.name;
-              let tempParty = member.party;
-              let tempCandidateUrl = member.candidateUrl;
-              let tempEmail = member.email;
-              let hasFacebook = false;
-              let hasTwitter = false;
-              if (member.channels != undefined) {
-                const tempSocialMedia = member.channels.map(channel => {
-                  let media = [];
-                  if (channel.type === "Facebook") {
-                    media.push(channel.id)
-                    hasFacebook = true;
-                    return media;
-                  }
-                  if (channel.type === "Twitter") {
-                    media.push(channel.id)
-                    hasTwitter = true;
-                    return media;
-                  }
-                });
-                if (tempSocialMedia.length === 2) {
+    const url =
+      "https://www.googleapis.com/civicinfo/v2/voterinfo?key=AIzaSyBcEH-TahbG4-yX_A-BjZ7lp_8XZdvbxGo&address=" +
+      percentTwenty +
+      "&electionId=2000";
+    axios.get(url).then(res => {
+      let forHeader = [];
+      forHeader.push(res.data.state[0].local_jurisdiction.name);
+      forHeader.push(res.data.state[0].name);
+      forHeader.push(
+        res.data.state[0].electionAdministrationBody.electionRegistrationUrl
+      );
+      res.data.contests.map(con => {
+        let tempOffice = con.office;
+        if (
+          con.candidates &&
+          con.type === "General" &&
+          con.level &&
+          con.level[0] === "country"
+        ) {
+          con.candidates.map(member => {
+            let tempName = member.name;
+            let tempParty = member.party;
+            let tempCandidateUrl = member.candidateUrl;
+            let tempEmail = member.email;
+            let hasFacebook = false;
+            let hasTwitter = false;
+            if (member.channels != undefined) {
+              const tempSocialMedia = member.channels.map(channel => {
+                if (channel.type === "Facebook") {
+                  hasFacebook = true;
+                  return channel.id;
+                }
+                if (channel.type === "Twitter") {
+                  hasTwitter = true;
+                  return channel.id;
+                }
+              });
+              for (let i = 0; i < tempSocialMedia.length; i++) {
+                if (tempSocialMedia[i] === undefined) {
+                  tempSocialMedia.splice(i, 1);
+                }
+              }
+              if (tempSocialMedia.length === 2) {
+                let eachCandidate = {
+                  office: tempOffice,
+                  name: tempName,
+                  party: tempParty,
+                  candidateUrl: tempCandidateUrl,
+                  email: tempEmail,
+                  gotFacebook: hasFacebook,
+                  facebook: tempSocialMedia[0],
+                  gotTwitter: hasTwitter,
+                  twitter: tempSocialMedia[1]
+                };
+                dummyList.push(eachCandidate);
+              } else {
+                if (hasFacebook) {
                   let eachCandidate = {
                     office: tempOffice,
                     name: tempName,
@@ -66,7 +90,8 @@ class Searchbar extends Component {
                     gotTwitter: hasTwitter
                   };
                   dummyList.push(eachCandidate);
-                } else {
+                }
+                else {
                   let eachCandidate = {
                     office: tempOffice,
                     name: tempName,
@@ -80,17 +105,38 @@ class Searchbar extends Component {
                   dummyList.push(eachCandidate);
                 }
               }
-            });
-          };
-        });
-        let forFooter = [];
-        forFooter.push(res.data.state[0].local_jurisdiction.name);
-        forFooter.push(res.data.state[0].local_jurisdiction.electionAdministrationBody.electionInfoUrl);
-        forFooter.push(res.data.state[0].local_jurisdiction.electionAdministrationBody.physicalAddress);
-        forFooter.push(res.data.state[0].local_jurisdiction.electionAdministrationBody.electionOfficials[0]);
-        this.props.changeDataHere(dummyList, forHeader, forFooter);
-        console.log("gets here too");
+            }
+            else {
+              let eachCandidate = {
+                office: tempOffice,
+                name: tempName,
+                party: tempParty,
+                candidateUrl: tempCandidateUrl,
+                email: tempEmail,
+                gotFacebook: false,
+                gotTwitter: false
+              };
+              dummyList.push(eachCandidate);
+            }
+          });
+        }
       });
+      let forFooter = [];
+      forFooter.push(res.data.state[0].local_jurisdiction.name);
+      forFooter.push(
+        res.data.state[0].local_jurisdiction.electionAdministrationBody
+          .electionInfoUrl
+      );
+      forFooter.push(
+        res.data.state[0].local_jurisdiction.electionAdministrationBody
+          .physicalAddress
+      );
+      forFooter.push(
+        res.data.state[0].local_jurisdiction.electionAdministrationBody
+          .electionOfficials[0]
+      );
+      this.props.changeDataHere(dummyList, forHeader, forFooter);
+    });
   };
   render() {
     return (

@@ -10,7 +10,6 @@ class RegisterText extends Component {
   }
   render() {
     const { dataForFooter } = this.props;
-    console.log(dataForFooter);
     return (
       <div>
         <div className="get_involved_text">

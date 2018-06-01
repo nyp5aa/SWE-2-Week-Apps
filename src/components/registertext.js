@@ -11,7 +11,7 @@ class RegisterText extends Component {
     return (
       <div className="headerForResults">
         Are you registered to vote in {dataForHeader[0]}, {dataForHeader[1]}?{" "}
-        <ButtonToolbar>
+        {dataForHeader[2] != undefined && <ButtonToolbar>
           <Button
             id="registerHereAddress"
             bsStyle="success"
@@ -21,7 +21,7 @@ class RegisterText extends Component {
           >
             REGISTER HERE
           </Button>
-        </ButtonToolbar>
+        </ButtonToolbar>}
       </div>
     );
   }
